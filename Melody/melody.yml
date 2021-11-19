@@ -1,0 +1,13 @@
+﻿
+# Lavalink connection information (should match the settings in lavalink's application.yml')
+lavalink:
+    port: 2333
+    hostname: "localhost"
+    password: "youshallnotpass"
+
+# Melody configuration
+melody:
+    color: "#ED9121" # Embedded message accent color (Default: #ED9121, Carrot Orange)
+    prefix: "-" # The command prefix (Default: -)
+    autoDisconnectTime: 20 # Leave the channel after this length of inactivity (Default: 20)
+                           # Set to -1 to disable automaticaly disconnecting
