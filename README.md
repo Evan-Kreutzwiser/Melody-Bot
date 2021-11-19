@@ -1,4 +1,4 @@
-# melody-bot
+# Melody-Bot
 
 #### Melody is a small Discord music player bot written with C# for personal use.
 
