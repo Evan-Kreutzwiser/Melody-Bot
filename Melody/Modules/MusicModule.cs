@@ -384,5 +384,24 @@ namespace Melody.Modules
                 await ReplyAsync(embed: await EmbedService.EmbedSongListAsync("Up Next", tracks, queueLength));
             }
         }
+
+        [Command("Volume")]
+        [Alias("v")]
+        [Summary("Change the sound volume")]
+        [RequireContext(ContextType.Guild)]
+        public async Task VolumeAsync(int newVolume)
+        {
+            // Check that the bot is in a voice channel
+            if (!_lavaNode.TryGetPlayer(Context.Guild, out var player))
+            {
+                await ReplyAsync("I'm not in a voice channel at the moment");
+                return;
+            }
+
+            // Set the volume of the player
+            player.volume = Math.Clamp(newVolume, 0, 100);
+            // Indicate success with a reaction emoji
+            await Context.Message.AddReactionAsync(ConfigurationService.SuccessReaction);
+        }
     }
 }
