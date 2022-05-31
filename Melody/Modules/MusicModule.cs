@@ -399,7 +399,8 @@ namespace Melody.Modules
             }
 
             // Set the volume of the player
-            player.volume = Math.Clamp(newVolume, 0, 100);
+            await player.UpdateVolumeAsync((ushort)Math.Clamp(newVolume, 0, 1000)); // LavaPlayer internals limit volume range to 0% - 1000%
+
             // Indicate success with a reaction emoji
             await Context.Message.AddReactionAsync(ConfigurationService.SuccessReaction);
         }
